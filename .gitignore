@@ -1,0 +1,13 @@
+**/*.iml
+.idea/
+atlassian-ide-plugin.xml
+**/target
+.project
+.settings/
+.classpath
+target/
+.DS_Store
+.idea/checks-style.xml
+.vlt
+node/
+**/workspace.xml
