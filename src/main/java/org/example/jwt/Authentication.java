@@ -1,5 +1,6 @@
 package org.example.jwt;
 
+import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.http.Cookie;
@@ -19,7 +20,8 @@ public class Authentication {
 
     @RequestMapping(value = "/auth", method = RequestMethod.POST)
     @ResponseBody
-    public void authorize(HttpServletResponse response, @RequestParam String userId, @RequestParam String password) {
+    public void authorize(HttpServletResponse response, @RequestParam(name = "user") String userId, @RequestParam(name = "password") String password)
+            throws IOException {
 
         if (isUserAuthenticated(userId, password)) {
             String thirdPartyId = getDataFromThirdPartyService(userId);

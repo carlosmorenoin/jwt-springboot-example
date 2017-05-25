@@ -1,6 +1,9 @@
 package org.example.jwt;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
@@ -22,7 +25,7 @@ public class Protected {
         if (!validateToken(request)) {
             throw new ForbiddenException();
         }
-        return "<h2>Welcome to the PROTECTED RESOURCE</h2>";
+        return "<h2>Welcome to the PROTECTED RESOURCE</h2><br/><hr/><p>Here is your token: " + retrieveJWT(request) + "</p>";
     }
 
     private boolean validateToken(final HttpServletRequest request) {

@@ -2,7 +2,7 @@ package org.example.jwt;
 
 public class Secret {
 
-    public static String getKey() {
-        return "secret";
+    public static byte[] getKey() {
+        return "secret".getBytes();
     }
 }
